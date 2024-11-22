@@ -10,6 +10,20 @@ class WordGame
     @answer_word = WORD_LIST.sample
     @displayed_word = create_initial_word(@answer_word.size)
     @remaining_life = DEFAULT_REMAINING_LIFE
+
+    puts <<-EOT
+--------------------------------
+単語当てゲームへようこそ！
+アルファベットを入力し、制限回数までに「_」で隠された単語を当ててください
+--------------------
+残り制限回数：#{@remaining_life}
+問題：#{@displayed_word}
+--------------------
+    EOT
+  end
+
+  def correct_chars?(chars)
+    !!chars.match(/[a-zA-Z]/) && chars.size == 1
   end
 
   private

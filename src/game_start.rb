@@ -2,8 +2,8 @@ require_relative './lib/word_game'
 
 word_game = WordGame.new
 
-while word_game.remaining_life > -1
-  word_game.display_user_status
+while word_game.remaining_life > 0
+  word_game.display_status
 
   input_char = gets.chomp
   if !word_game.correct_char?(input_char)

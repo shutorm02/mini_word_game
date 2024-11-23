@@ -1,6 +1,17 @@
 class WordGame
 
-  WORD_LIST = ['dog', 'cat', 'rabbit', 'tiger', 'raccoon', 'cow', 'bear', 'whale']
+  WORD_LIST = %w[dog cat rabbit
+    tiger
+    raccoon
+    cow
+    bear
+    whale
+    boar
+    horse
+    hippopotamus
+    chinchilla
+  ].freeze
+
   DEFAULT_REMAINING_LIFE = 5
 
   attr_accessor :remaining_life, :displayed_word, :input_chars
@@ -12,11 +23,7 @@ class WordGame
     @remaining_life = DEFAULT_REMAINING_LIFE
     @input_chars = []
 
-    puts <<-EOT
---------------------------------
-単語当てゲームへようこそ！
-アルファベットを入力し、制限回数までに「_」で隠された単語を当ててください
-    EOT
+    display_welcome_msg
   end
 
   def correct_char?(char)
@@ -53,7 +60,7 @@ class WordGame
     @displayed_word == @answer_word
   end
 
-  def display_user_status
+  def display_status
     puts <<-EOT
 --------------------
 問題：#{@displayed_word}
@@ -76,5 +83,13 @@ class WordGame
       initial_word << '_'
     }
     return initial_word
+  end
+
+  def display_welcome_msg
+    puts <<-EOT
+--------------------------------
+単語当てゲームへようこそ！
+アルファベットを入力し、制限回数までに「_」で隠された単語を当ててください
+    EOT
   end
 end

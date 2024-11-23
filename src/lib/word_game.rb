@@ -6,8 +6,8 @@ class WordGame
   attr_accessor :remaining_life, :displayed_word, :input_chars
   attr_reader :answer_word
 
-  def initialize()
-    @answer_word = WORD_LIST.sample
+  def initialize(answer_word = WORD_LIST.sample)
+    @answer_word = answer_word
     @displayed_word = create_initial_word(@answer_word.size)
     @remaining_life = DEFAULT_REMAINING_LIFE
     @input_chars = []

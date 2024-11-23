@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 require_relative './lib/word_game'
 
 word_game = WordGame.new
 
-while word_game.remaining_life > 0
+while word_game.remaining_life.positive?
   word_game.display_status
 
   input_char = gets.chomp
-  if !word_game.correct_char?(input_char)
+  unless word_game.correct_char?(input_char)
     puts '入力できるのはアルファベットの大文字または小文字の1文字のみです'
     next
   end

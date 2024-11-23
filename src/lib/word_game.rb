@@ -1,16 +1,17 @@
-class WordGame
+# frozen_string_literal: true
 
+# 単語ゲーム用のクラス
+class WordGame
   WORD_LIST = %w[dog cat rabbit
-    tiger
-    raccoon
-    cow
-    bear
-    whale
-    boar
-    horse
-    hippopotamus
-    chinchilla
-  ].freeze
+                 tiger
+                 raccoon
+                 cow
+                 bear
+                 whale
+                 boar
+                 horse
+                 hippopotamus
+                 chinchilla].freeze
 
   DEFAULT_LIFE = 5
 
@@ -40,7 +41,7 @@ class WordGame
 
   def open_answer_word
     formatted_chars = @input_chars.map { |char| "^#{char}" }.join('|')
-    @displayed_word = @answer_word.tr(formatted_chars, "_")
+    @displayed_word = @answer_word.tr(formatted_chars, '_')
   end
 
   def process_char_input(char)
@@ -60,12 +61,12 @@ class WordGame
   end
 
   def display_status
-    puts <<-EOT
---------------------
-問題：#{@displayed_word}
-残り失敗可能数：#{@remaining_life}
---------------------
-    EOT
+    puts <<~TEXT
+      --------------------
+      問題：#{@displayed_word}
+      残り失敗可能数：#{@remaining_life}
+      --------------------
+    TEXT
   end
 
   def display_ending_msg
@@ -77,10 +78,10 @@ class WordGame
   private
 
   def display_welcome_msg
-    puts <<-EOT
---------------------------------
-単語当てゲームへようこそ！
-アルファベットを入力し、制限回数までに「_」で隠された単語を当ててください
-    EOT
+    puts <<~TEXT
+      --------------------------------
+      単語当てゲームへようこそ！
+      アルファベットを入力し、制限回数までに「_」で隠された単語を当ててください
+    TEXT
   end
 end

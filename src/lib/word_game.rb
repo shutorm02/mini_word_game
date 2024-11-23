@@ -16,10 +16,6 @@ class WordGame
 --------------------------------
 単語当てゲームへようこそ！
 アルファベットを入力し、制限回数までに「_」で隠された単語を当ててください
---------------------
-残り制限回数：#{@remaining_life}
-問題：#{@displayed_word}
---------------------
     EOT
   end
 
@@ -53,8 +49,23 @@ class WordGame
     end
   end
 
-  def correct_answer?
+  def complete?
     @displayed_word == @answer_word
+  end
+
+  def display_user_status
+    puts <<-EOT
+--------------------
+問題：#{@displayed_word}
+残り制限回数：#{@remaining_life}
+--------------------
+    EOT
+  end
+
+  def display_ending_msg
+    puts '--------------------------------'
+    puts complete? ? 'おめでとうございます、ゲームをクリアしました！' : '残念、ゲームチャレンジ失敗です'
+    puts "正解は「#{@answer_word}」でした"
   end
 
   private

@@ -2,7 +2,9 @@
 
 # 単語ゲーム用のクラス
 class WordGame
-  WORD_LIST = %w[dog cat rabbit
+  WORD_LIST = %w[dog
+                 cat
+                 rabbit
                  tiger
                  raccoon
                  cow

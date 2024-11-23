@@ -11,7 +11,7 @@ while word_game.remaining_life > 0
     next
   end
 
-  if word_game.check_char_whether_exist_in_the_answer(input_char)
+  if word_game.process_char_input(input_char)
     puts '正解です！'
     break if word_game.complete?
   else

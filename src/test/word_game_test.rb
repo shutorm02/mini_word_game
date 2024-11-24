@@ -27,7 +27,7 @@ class WordGameTest < ActiveSupport::TestCase
   def test_remaining_life_initial_value
     assert_equal WordGame::DEFAULT_LIFE, @game.remaining_life
   end
-  
+
   def test_input_chars_initial_value
     assert_empty @game.input_chars
   end
@@ -57,7 +57,7 @@ class WordGameTest < ActiveSupport::TestCase
     @game.open_answer_word
     assert_equal 'do_', @game.displayed_word
   end
-  
+
   def test_open_answer_word_with_same_characters
     game = WordGame.new('rabbit')
     game.input_chars = %w[r b]
@@ -78,7 +78,7 @@ class WordGameTest < ActiveSupport::TestCase
     assert_equal WordGame::DEFAULT_LIFE - 1, @game.remaining_life
     assert_not_includes @game.input_chars, 'c'
   end
-  
+
   def test_process_char_input_already_input
     @game.input_chars = ['d']
     assert_not @game.process_char_input('d')

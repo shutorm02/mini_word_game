@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 require 'minitest/autorun'
 require 'minitest/rails'
 require_relative '../lib/word_game'
 
+# 単語ゲーム用のテスト
 class WordGameTest < ActiveSupport::TestCase
   def setup
     @game = WordGame.new('dog')

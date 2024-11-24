@@ -3,6 +3,7 @@
 require_relative './lib/word_game'
 
 word_game = WordGame.new
+word_game.display_welcome_msg
 
 while word_game.remaining_life.positive?
   word_game.display_status

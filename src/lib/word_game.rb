@@ -25,8 +25,6 @@ class WordGame
     @displayed_word = '_' * answer_word.size
     @remaining_life = DEFAULT_LIFE
     @input_chars = []
-
-    display_welcome_msg
   end
 
   def correct_char?(char)
@@ -62,6 +60,14 @@ class WordGame
     displayed_word == answer_word
   end
 
+  def display_welcome_msg
+    puts <<~TEXT
+      --------------------------------
+      単語当てゲームへようこそ！
+      アルファベットを入力し、制限回数までに「_」で隠された単語を当ててください
+    TEXT
+  end
+
   def display_status
     puts <<~TEXT
       --------------------
@@ -75,15 +81,5 @@ class WordGame
     puts '--------------------------------'
     puts complete? ? 'おめでとうございます、ゲームをクリアしました！' : '残念、ゲームチャレンジ失敗です'
     puts "正解は「#{@answer_word}」でした"
-  end
-
-  private
-
-  def display_welcome_msg
-    puts <<~TEXT
-      --------------------------------
-      単語当てゲームへようこそ！
-      アルファベットを入力し、制限回数までに「_」で隠された単語を当ててください
-    TEXT
   end
 end
